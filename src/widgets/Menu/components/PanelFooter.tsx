@@ -60,13 +60,14 @@ const PanelFooter: React.FC<Props> = ({
     <Container>
       <SocialEntry>
         <CakePrice cakePriceUsd={cakePriceUsd} isDark={isDark} />
-        <YPantyPrice yPantyPriceUsd={ypantyPriceUsd} isDark={isDark} />
+        <SocialLinks />
+        {/* <YPantyPrice yPantyPriceUsd={ypantyPriceUsd} isDark={isDark} /> */}
       </SocialEntry>
-      <SettingsEntry>
+      {/* <SettingsEntry>
         <ThemeSwitcher isDark={isDark} toggleTheme={toggleTheme} />
         <SocialLinks />
-        {/* <LangSelector isDark={isDark} currentLang={currentLang} langs={langs} setLang={setLang} /> */}
-      </SettingsEntry>
+        <LangSelector isDark={isDark} currentLang={currentLang} langs={langs} setLang={setLang} />
+      </SettingsEntry> */}
     </Container>
   );
 };
