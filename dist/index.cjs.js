@@ -3483,12 +3483,12 @@ var socials = [
     {
         label: "Telegram",
         icon: "TelegramIcon",
-        href: "https://t.me/yieldpanty"
+        href: "https://t.me/zizofinance"
     },
     {
         label: "Twitter",
         icon: "TwitterIcon",
-        href: "https://twitter.com/yieldpanty",
+        href: "https://twitter.com/FinanceZizo",
     },
 ];
 var MENU_HEIGHT = 75;
