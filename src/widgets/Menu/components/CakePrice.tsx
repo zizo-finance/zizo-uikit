@@ -27,7 +27,7 @@ const CakePrice: React.FC<Props> = ({ cakePriceUsd, isDark }) => {
   return cakePriceUsd ? (
     <PriceLink href="#" target="_blank">
       <PancakeRoundIcon width="24px" mr="8px" />
-      <Text color={isDark ? "textSubtle" : "#F04D92"} bold>{`$${cakePriceUsd.toFixed(3)}`}</Text>
+      <Text color={isDark ? "textSubtle" : "#997b3f"} bold>{`$${cakePriceUsd.toFixed(3)}`}</Text>
     </PriceLink>
   ) : (
     <Skeleton width={80} height={24} />

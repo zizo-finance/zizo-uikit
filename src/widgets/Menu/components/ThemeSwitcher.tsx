@@ -17,11 +17,11 @@ const ThemeSwitcher: React.FC<Props> = ({ isDark, toggleTheme }) => (
   <Button variant="text" onClick={() => toggleTheme(!isDark)}>
     {/* alignItems center is a Safari fix */}
     <Flex alignItems="center">
-      <SunIcon color={isDark ? "textDisabled" : "#F04D92"} width="24px" />
+      <SunIcon color={isDark ? "textDisabled" : "#997b3f"} width="24px" />
       <Text color="#d086a5" mx="4px">
         /
       </Text>
-      <MoonIcon color={isDark ? "#F04D92" : "#d086a5"} width="24px" />
+      <MoonIcon color={isDark ? "#997b3f" : "#d086a5"} width="24px" />
     </Flex>
   </Button>
 );

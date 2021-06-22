@@ -12,7 +12,7 @@ const SocialLinks: React.FC<{ isDark?: boolean }> = ({ isDark }) => (
   <Flex>
     {socials.map((social, index) => {
       const Icon = Icons[social.icon];
-      const iconProps = { width: "24px", color: isDark ? "textSubtle" : "#F04D92", style: { cursor: "pointer" } };
+      const iconProps = { width: "24px", color: isDark ? "textSubtle" : "#997b3f", style: { cursor: "pointer" } };
       const mr = index < socials.length - 1 ? "24px" : 0;
       // if (social.items) {
       //   return (
@@ -26,7 +26,7 @@ const SocialLinks: React.FC<{ isDark?: boolean }> = ({ isDark }) => (
       //   );
       // }
       return (
-        <Link external key={social.label} href={social.href} aria-label={social.label} mr={mr} color="#F04D92">
+        <Link external key={social.label} href={social.href} aria-label={social.label} mr={mr} color="#997b3f">
           <Icon {...iconProps} />
         </Link>
       );

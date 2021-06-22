@@ -21,7 +21,7 @@ const rainbowAnimation = keyframes`
 `;
 
 const LinkLabel = styled.div<{ isPushed: boolean }>`
-  color: ${({ isPushed, theme }) => (isPushed ? (theme.isDark ? theme.colors.textSubtle : '#F04D92') : "transparent")};
+  color: ${({ isPushed, theme }) => (isPushed ? (theme.isDark ? theme.colors.textSubtle : '#997b3f') : "transparent")};
   transition: color 0.4s;
   flex-grow: 1;
 `;
@@ -34,7 +34,7 @@ const MenuEntry = styled.div<Props>`
   padding: ${({ secondary }) => (secondary ? "0 32px" : "0 16px")};
   font-size: ${({ secondary }) => (secondary ? "14px" : "16px")};
   background-color: ${({ secondary, theme }) => (secondary ? theme.isDark ? theme.colors.background : "#fbdee8" : "transparent")};
-  color: ${({ theme }) => theme.isDark ? theme.colors.textSubtle : "#F04D92"};
+  color: ${({ theme }) => theme.isDark ? theme.colors.textSubtle : "#997b3f"};
   box-shadow: ${({ isActive, theme }) => (isActive ? `inset 4px 0px 0px ${theme.colors.primary}` : "none")};
 
   a {
@@ -45,7 +45,7 @@ const MenuEntry = styled.div<Props>`
   }
 
   svg {
-    fill: ${({ theme }) => theme.isDark ? theme.colors.textSubtle : '#F04D92'};
+    fill: ${({ theme }) => theme.isDark ? theme.colors.textSubtle : '#997b3f'};
   }
 
   &:hover {
