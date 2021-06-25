@@ -59,6 +59,7 @@ export interface PanelProps {
 
 export interface NavProps extends PanelProps {
   account?: string;
+  hideSidebar?: boolean;
   login: Login;
   profile?: Profile;
   logout: () => void;

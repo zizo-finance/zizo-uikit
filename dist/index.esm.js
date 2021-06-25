@@ -3316,13 +3316,13 @@ var StyledLink = styled(Link$1)(templateObject_2$5 || (templateObject_2$5 = __ma
     return theme.mediaQueries.nav;
 }, blink);
 var Logo = function (_a) {
-    var isPushed = _a.isPushed, togglePush = _a.togglePush, isDark = _a.isDark, href = _a.href;
+    var isPushed = _a.isPushed, togglePush = _a.togglePush, isDark = _a.isDark, href = _a.href, hideSidebar = _a.hideSidebar;
     var isAbsoluteUrl = href.startsWith("http");
     var innerLogo = (React.createElement(React.Fragment, null,
         React.createElement(Icon$14, { className: "mobile-icon" }),
         React.createElement(LogoWithText, { className: "desktop-icon", isDark: isDark })));
     return (React.createElement(Flex, { alignItems: "center" },
-        React.createElement(MenuButton, { "aria-label": "Toggle menu", onClick: togglePush, mr: "24px" }, isPushed ? (React.createElement(Icon$n, { width: "24px", color: isDark ? "textSubtle" : "#997b3f" })) : (React.createElement(Icon$o, { width: "24px", color: isDark ? "textSubtle" : "#997b3f" }))),
+        !hideSidebar && React.createElement(MenuButton, { "aria-label": "Toggle menu", onClick: togglePush, mr: "24px" }, isPushed ? (React.createElement(Icon$n, { width: "24px", color: isDark ? "textSubtle" : "#997b3f" })) : (React.createElement(Icon$o, { width: "24px", color: isDark ? "textSubtle" : "#997b3f" }))),
         isAbsoluteUrl ? (React.createElement(StyledLink, { as: "a", href: href, "aria-label": "Pancake home page" }, innerLogo)) : (React.createElement(StyledLink, { to: href, "aria-label": "Pancake home page" }, innerLogo))));
 };
 var Logo$1 = React.memo(Logo, function (prev, next) { return prev.isPushed === next.isPushed && prev.isDark === next.isDark; });
@@ -3930,11 +3930,11 @@ var Inner = styled.div(templateObject_4 || (templateObject_4 = __makeTemplateObj
     var theme = _a.theme;
     return theme.mediaQueries.nav;
 }, function (_a) {
-    var isPushed = _a.isPushed;
-    return (isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED) + "px";
+    var isPushed = _a.isPushed, hideSidebar = _a.hideSidebar;
+    return (hideSidebar ? 0 : isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED) + "px";
 }, function (_a) {
-    var isPushed = _a.isPushed;
-    return "calc(100% - " + (isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED) + "px)";
+    var isPushed = _a.isPushed, hideSidebar = _a.hideSidebar;
+    return "calc(100% - " + (hideSidebar ? 0 : isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED) + "px)";
 });
 var MobileOnlyOverlay = styled(Overlay)(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  position: fixed;\n  height: 100%;\n\n  ", " {\n    display: none;\n  }\n"], ["\n  position: fixed;\n  height: 100%;\n\n  ", " {\n    display: none;\n  }\n"])), function (_a) {
     var theme = _a.theme;
@@ -3942,7 +3942,7 @@ var MobileOnlyOverlay = styled(Overlay)(templateObject_5 || (templateObject_5 = 
 });
 var Menu = function (_a) {
     var _b;
-    var account = _a.account, login = _a.login, logout = _a.logout, isDark = _a.isDark, toggleTheme = _a.toggleTheme, langs = _a.langs, setLang = _a.setLang, currentLang = _a.currentLang, cakePriceUsd = _a.cakePriceUsd, ypantyPriceUsd = _a.ypantyPriceUsd, links = _a.links; _a.profile; var children = _a.children;
+    var account = _a.account, hideSidebar = _a.hideSidebar, login = _a.login, logout = _a.logout, isDark = _a.isDark, toggleTheme = _a.toggleTheme, langs = _a.langs, setLang = _a.setLang, currentLang = _a.currentLang, cakePriceUsd = _a.cakePriceUsd, ypantyPriceUsd = _a.ypantyPriceUsd, links = _a.links; _a.profile; var children = _a.children;
     var isXl = useMatchBreakpoints().isXl;
     var isMobile = isXl === false;
     var _c = useState(!isMobile), isPushed = _c[0], setIsPushed = _c[1];
@@ -3980,12 +3980,12 @@ var Menu = function (_a) {
     var homeLink = links.find(function (link) { return link.label === "Home"; });
     return (React.createElement(Wrapper, null,
         React.createElement(StyledNav, { showMenu: showMenu },
-            React.createElement(Logo$1, { isPushed: isPushed, togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/" }),
+            React.createElement(Logo$1, { isPushed: isPushed, hideSidebar: hideSidebar, togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/" }),
             React.createElement(Flex, null,
                 React.createElement(UserBlock$1, { account: account, login: login, logout: logout }))),
         React.createElement(BodyWrapper, null,
-            React.createElement(Panel, { isPushed: isPushed, isMobile: isMobile, showMenu: showMenu, isDark: isDark, toggleTheme: toggleTheme, langs: langs, setLang: setLang, currentLang: currentLang, cakePriceUsd: cakePriceUsd, ypantyPriceUsd: ypantyPriceUsd, pushNav: setIsPushed, links: links }),
-            React.createElement(Inner, { isPushed: isPushed, showMenu: showMenu }, children),
+            !hideSidebar && React.createElement(Panel, { isPushed: isPushed, isMobile: isMobile, showMenu: showMenu, isDark: isDark, toggleTheme: toggleTheme, langs: langs, setLang: setLang, currentLang: currentLang, cakePriceUsd: cakePriceUsd, ypantyPriceUsd: ypantyPriceUsd, pushNav: setIsPushed, links: links }),
+            React.createElement(Inner, { isPushed: isPushed, showMenu: showMenu, hideSidebar: hideSidebar || false }, children),
             React.createElement(MobileOnlyOverlay, { show: isPushed, onClick: function () { return setIsPushed(false); }, role: "presentation" }))));
 };
 var templateObject_1$3, templateObject_2, templateObject_3, templateObject_4, templateObject_5;
